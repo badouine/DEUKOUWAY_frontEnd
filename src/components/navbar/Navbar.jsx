@@ -1,5 +1,4 @@
 import "./navbar.css";
-import React from 'react'
 
 const Navbar = () => {
   return (
@@ -7,8 +6,8 @@ const Navbar = () => {
         <div className="navContainer">
             <span className="logo">DEUKOUWAY</span>
             <div className="navItems">
-                <button className="navButton">Register</button>
-                <button className="navButton">Login</button>
+                <button className="navButton">Inscription</button>
+                <button className="navButton">Se connecter</button>
             </div>
         </div>
     </div>
