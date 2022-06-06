@@ -10,14 +10,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import { DateRange } from "react-date-range";
 import { useState } from "react";
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
+import { format } from "date-fns";
+import "react-date-range/dist/styles.css"; // main css file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
 const Header = () => {
   const [date, setDate] = useState([
     {
       startDate: new Date(),
-      endDate: null,
+      endDate: new Date(),
       key: "selection",
     },
   ]);
@@ -48,8 +49,7 @@ const Header = () => {
         </div>
         <h1 className="headerTitle">Ay waay waay , guii Diwane moo nexx !</h1>
         <p className="headerDesc">
-          {" "}
-          Contactez directement le proprietaire , et prenez vos clefs{" "}
+          Contactez directement le proprietaire , et prenez vos clefs
         </p>
         <button className="headerBtn"> Enregistrement / Connexion </button>
         <div className="headerSearch">
@@ -63,13 +63,17 @@ const Header = () => {
           </div>
           <div className="headerSearchItem">
             <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
-            <span className="headerSearchText">Date</span>
+            <span className="headerSearchText">{`${format(
+              date[0].startDate,
+              "MM/dd/yyyy"
+            )} à ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
             <DateRange
               editableDateInputs={true}
               onChange={(item) => setDate([item.selection])}
               moveRangeOnFirstSelection={false}
               ranges={date}
-            />{" "}
+              className="date"
+            />
           </div>
           <div className="headerSearchItem">
             <FontAwesomeIcon icon={faPerson} className="headerIcon" />
