@@ -5,7 +5,7 @@ import {
   faPlane,
   faTaxi,
   faParking,
-  faBezierCurve
+  faBezierCurve,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
@@ -25,12 +25,21 @@ const Header = () => {
     },
   ]);
 
-  const [openOptions, setOpenOptions] = useState(false); 
+  const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
     children: 0,
     room: 1,
-  })
+  });
+
+  const handleOption = (name, operation) => {
+    setOptions((prev) => {
+      return {
+        ...prev,
+        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+      };
+    });
+  };
 
   return (
     <div className="header">
@@ -73,17 +82,22 @@ const Header = () => {
           </div>
           <div className="headerSearchItem">
             <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
-            <span onClick={() => setOpenDate(!openDate)} className="headerSearchText">{`${format(
-              date[0].startDate,
+            <span
+              onClick={() => setOpenDate(!openDate)}
+              className="headerSearchText"
+            >{`${format(date[0].startDate, "MM/dd/yyyy")} à ${format(
+              date[0].endDate,
               "MM/dd/yyyy"
-            )} à ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
-          {openDate &&  <DateRange
-              editableDateInputs={true}
-              onChange={(item) => setDate([item.selection])}
-              moveRangeOnFirstSelection={false}
-              ranges={date}
-              className="date"
-            />}
+            )}`}</span>
+            {openDate && (
+              <DateRange
+                editableDateInputs={true}
+                onChange={(item) => setDate([item.selection])}
+                moveRangeOnFirstSelection={false}
+                ranges={date}
+                className="date"
+              />
+            )}
           </div>
           <div className="headerSearchItem">
             <FontAwesomeIcon icon={faPerson} className="headerIcon" />
@@ -93,29 +107,56 @@ const Header = () => {
             <div className="options">
               <div className="optionItem">
                 <span className="optionText">Adult</span>
-                <div className="optionCounter"> 
-                <button className="optionCounterButton">-</button>
-                <span className="optionCounterNumber">1</span>
-                <button className="optionCounterButton">+</button>
+                <div className="optionCounter">
+                  <button
+                    className="optionCounterButton"
+                    onClick={() => handleOption("adult", "d")}
+                  >
+                    -
+                  </button>
+                  <span className="optionCounterNumber">1</span>
+                  <button
+                    className="optionCounterButton"
+                    onClick={() => handleOption("adult", "i")}
+                  >
+                    +
+                  </button>
                 </div>
               </div>
               <div className="optionItem">
                 <span className="optionText">Children</span>
                 <div className="optionCounter">
-
-                <button className="optionCounterButton">-</button>
-                <span className="optionCounterNumber">0</span>
-                <button className="optionCounterButton">+</button>
+                  <button
+                    className="optionCounterButton"
+                    onClick={() => handleOption("children", "d")}
+                  >
+                    -
+                  </button>
+                  <span className="optionCounterNumber">0</span>
+                  <button
+                    className="optionCounterButton"
+                    onClick={() => handleOption("children", "i")}
+                  >
+                    +
+                  </button>
                 </div>
               </div>
               <div className="optionItem">
                 <span className="optionText">Room</span>
                 <div className="optionCounter">
-
-
-                <button className="optionCounterButton">-</button>
-                <span className="optionCounterNumber">1</span>
-                <button className="optionCounterButton">+</button>
+                  <button
+                    className="optionCounterButton"
+                    onClick={() => handleOption("room", "d")}
+                  >
+                    -
+                  </button>
+                  <span className="optionCounterNumber">1</span>
+                  <button
+                    className="optionCounterButton"
+                    onClick={() => handleOption("room", "i")}
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             </div>
