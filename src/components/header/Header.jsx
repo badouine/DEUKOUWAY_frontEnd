@@ -1,10 +1,11 @@
 import {
   faBed,
   faCalendarDays,
-  faCar,
   faPerson,
   faPlane,
   faTaxi,
+  faParking,
+  faBezierCurve
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
@@ -15,6 +16,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
 const Header = () => {
+  const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -22,29 +24,37 @@ const Header = () => {
       key: "selection",
     },
   ]);
+
+  const [openOptions, setOpenOptions] = useState(false); 
+  const [options, setOptions] = useState({
+    adult: 1,
+    children: 0,
+    room: 1,
+  })
+
   return (
     <div className="header">
       <div className="headerContainer">
         <div className="headerList">
           <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
+            <span>Confortable</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
+            <span>Aeroport</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
+            <FontAwesomeIcon icon={faParking} />
+            <span>Parking</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
+            <FontAwesomeIcon icon={faBezierCurve} />
             <span>Attractions</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport taxis</span>
+            <span>Transport</span>
           </div>
         </div>
         <h1 className="headerTitle">Ay waay waay , guii Diwane moo nexx !</h1>
@@ -63,23 +73,31 @@ const Header = () => {
           </div>
           <div className="headerSearchItem">
             <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
-            <span className="headerSearchText">{`${format(
+            <span onClick={() => setOpenDate(!openDate)} className="headerSearchText">{`${format(
               date[0].startDate,
               "MM/dd/yyyy"
             )} à ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
-            <DateRange
+          {openDate &&  <DateRange
               editableDateInputs={true}
               onChange={(item) => setDate([item.selection])}
               moveRangeOnFirstSelection={false}
               ranges={date}
               className="date"
-            />
+            />}
           </div>
           <div className="headerSearchItem">
             <FontAwesomeIcon icon={faPerson} className="headerIcon" />
             <span className="headerSearchText">
-              Adultes & enfants 1 chambre
+              {`${options.adult} adult * ${options.children} children * ${options.room}`}
             </span>
+            <div className="options">
+              <div className="optionItem">
+                <span className="optionText">Adult</span>
+                <button className="optionCounterButton">-</button>
+                <span className="optionCounterNumber">1</span>
+                <button className="optionCounterButton">+</button>
+              </div>
+            </div>
           </div>
           <div className="headerSearchItem">
             <button className="headerBtn">Weureul ?</button>
