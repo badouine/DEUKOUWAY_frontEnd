@@ -96,4 +96,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    font-size: 13px;
+    color: #000000;
+}
+.optionCounterButton{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #0071c2;
+    cursor: pointer;   
 }
