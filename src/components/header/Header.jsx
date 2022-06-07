@@ -88,26 +88,35 @@ const Header = () => {
           <div className="headerSearchItem">
             <FontAwesomeIcon icon={faPerson} className="headerIcon" />
             <span className="headerSearchText">
-              {`${options.adult} adult * ${options.children} children * ${options.room}`}
+              {`${options.adult} adult * ${options.children} children * ${options.room} room`}
             </span>
             <div className="options">
               <div className="optionItem">
                 <span className="optionText">Adult</span>
+                <div className="optionCounter"> 
                 <button className="optionCounterButton">-</button>
                 <span className="optionCounterNumber">1</span>
                 <button className="optionCounterButton">+</button>
+                </div>
               </div>
               <div className="optionItem">
                 <span className="optionText">Children</span>
+                <div className="optionCounter">
+
                 <button className="optionCounterButton">-</button>
                 <span className="optionCounterNumber">0</span>
                 <button className="optionCounterButton">+</button>
+                </div>
               </div>
               <div className="optionItem">
                 <span className="optionText">Room</span>
+                <div className="optionCounter">
+
+
                 <button className="optionCounterButton">-</button>
                 <span className="optionCounterNumber">1</span>
                 <button className="optionCounterButton">+</button>
+                </div>
               </div>
             </div>
           </div>

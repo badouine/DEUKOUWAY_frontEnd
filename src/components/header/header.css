@@ -89,5 +89,11 @@
 .optionItem{
     width: 200px;
     display: flex;
+    justify-content: space-between;
     margin: 10px;
+}
+.optionCounter{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
