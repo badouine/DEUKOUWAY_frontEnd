@@ -15,7 +15,7 @@ import { format } from "date-fns";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
-const Header = () => {
+const Header = ({type}) => {
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
@@ -66,6 +66,10 @@ const Header = () => {
             <span>Transport</span>
           </div>
         </div>
+        { 
+        
+          type !== 'list' &&
+        <>
         <h1 className="headerTitle">Ay waay waay , guii Diwane moo nexx !</h1>
         <p className="headerDesc">
           Contactez directement le proprietaire , et prenez vos clefs .
@@ -167,7 +171,7 @@ const Header = () => {
           <div className="headerSearchItem">
             <button className="headerBtn">Weureul ?</button>
           </div>
-        </div>
+        </div> </> }
       </div>
     </div>
   );
