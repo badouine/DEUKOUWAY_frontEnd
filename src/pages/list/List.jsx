@@ -23,7 +23,7 @@ const List = () => {
             <h1 className="listTitle">Search</h1>
             <div className="listItem">
               <label >Destination</label>
-              <input type="text"/>
+              <input placeholder= {destination} type="text"/>
             </div>
             <div className="listItem">
               <label >Check-in Date</label>
