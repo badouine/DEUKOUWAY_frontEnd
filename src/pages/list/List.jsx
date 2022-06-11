@@ -12,6 +12,14 @@ const List = () => {
         <div className="listWrapper">
           <div className="listSearch">
             <h1 className="listTitle">Search</h1>
+            <div className="listItem">
+              <label >Destination</label>
+              <input type="text"/>
+            </div>
+            <div className="listItem">
+              <label >Check-in Date</label>
+              <input type="text"/>
+            </div>
           </div>
             <div className="listResult"></div>
         </div>
