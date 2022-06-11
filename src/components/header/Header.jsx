@@ -34,7 +34,7 @@ const Header = ({ type }) => {
     room: 1,
   });
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
