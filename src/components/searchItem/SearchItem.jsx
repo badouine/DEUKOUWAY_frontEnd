@@ -16,14 +16,14 @@ const SearchItem = () => {
           Studio Apartments with Air conditionning
         </span>
         <span className="siFeatures">
-            Entire studio · 1 bathroom · 21m² 1 full bed
+          Entire studio · 1 bathroom · 21m² 1 full bed
         </span>
         <span className="siCancelOp">Free cancellation </span>
         <span className="siCancelOpSubtitle">
-            You can cancel later, so lock in this great price today
+          You can cancel later, so lock in this great price today
         </span>
       </div>
-      <div className="siDetails"></div>
+      <div className="siDetails">details</div>
     </div>
   );
 };
