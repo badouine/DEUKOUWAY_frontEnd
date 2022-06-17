@@ -51,6 +51,31 @@ const Hotel = () => {
                 </div>
               ))}
             </div>
+            <div className="hotelDetails">
+              <div className="hotelDetailsTexts">
+                <h1 className="hotelTitle">Stay in the heart of Krakow</h1>
+                <p className="hotelDesc">
+                  Cet établissement est à 4 minutes à pied de la plage. Doté
+                  d'une piscine avec une zone pour les enfants, le Kalimera
+                  Hotel est un établissement à la gestion familiale situé à
+                  seulement 50 mètres de la plage d'Agia Marina de La Canée. Il
+                  est équipé d'une connexion Wi-Fi gratuite dans l'ensemble de
+                  ses locaux et ses logements indépendants sont pourvus d'un
+                  balcon.
+                </p>
+              </div>
+              <div className="hotelDetailsPrice">
+                <h1>Perfect for a 9-night stay!</h1>
+                <span>
+                  located in the real heart of Krakow , this propert has an
+                  excellent location score of 9.8!
+                </span>
+                <h2>
+                  <b>$945</b> (9 nights)
+                </h2>
+                <button>Reserve or Book Now!</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
