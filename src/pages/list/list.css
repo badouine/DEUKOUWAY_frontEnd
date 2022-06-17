@@ -61,6 +61,13 @@
   font: size 12px;
 }
 
+.listOptionInput{
+  width: 50%;
+}
+.listOptions{
+  padding: 10px;
+}
+
 .listResult {
   flex: 3px;
 }
