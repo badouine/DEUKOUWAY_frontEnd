@@ -3,3 +3,18 @@
     justify-content: center;
     margin-top: 20px;
 }
+
+.hotelWrapper{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.hotelImgWrapper{
+    width: 33%;
+}
+.hotelImg{
+    width: 100%;
+    object-fit: cover;
+}
