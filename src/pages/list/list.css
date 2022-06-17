@@ -67,6 +67,15 @@
 .listOptions{
   padding: 10px;
 }
+.listSearch>button{
+  padding: 10px;
+  background-color: #0071c2;
+  color: #fff;
+  border: none;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
+}
 
 .listResult {
   flex: 3px;
