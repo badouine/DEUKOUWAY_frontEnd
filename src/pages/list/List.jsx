@@ -48,13 +48,13 @@ const List = () => {
               <div className="listOptions">
                 <div className="listOptionItem">
                   <span className="listOptionText">
-                    Min price<small>per night</small>
+                    Min price<small> per night</small>
                   </span>
                   <input type="number" className="listOptionInput"></input>
                 </div>
                 <div className="listOptionItem">
                   <span className="listOptionText">
-                    Max price<small>per night</small>
+                    Max price<small> per night</small>
                   </span>
                   <input type="number" className="listOptionInput"></input>
                 </div>
@@ -90,15 +90,15 @@ const List = () => {
             <button>Search</button>
           </div>
           <div className="listResult">
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
           </div>
         </div>
       </div>
