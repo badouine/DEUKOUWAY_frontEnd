@@ -13,3 +13,33 @@
     height: 200px;
     object-fit: cover;
 }
+
+.siDesc{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex:2;
+}
+
+
+.siDistance{
+    font-size: 12px;
+}
+
+.siTaxiOp{
+    font-size: 12px;
+    background-color: #008009;
+    color: #fff;
+    width: max-content;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.siTitle{
+    font-style: 15px;
+    color: #0071c2;
+}
+
+.siDetails{
+    flex: 1;
+}
