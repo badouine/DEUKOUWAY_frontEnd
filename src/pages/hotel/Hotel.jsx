@@ -5,7 +5,11 @@ import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 const Hotel = () => {
+  const [slideNumber, setSlideNumber] = useState(0);
+  const [open, setOpen] = useState(false);
+
   const photos = [
     {
       scr: "https://t-cf.bstatic.com/xdata/images/hotel/square600/49404416.webp?k=8db78f49ede24106b1749bcd17d9f27e6ac83972d4ad8e6ce756b345e6fd6903&o=&s=1",
@@ -28,12 +32,22 @@ const Hotel = () => {
     {
       src: "https://t-cf.bstatic.com/xdata/images/hotel/square600/265102710.webp?k=0dbd7460e3018107ecaa3530aec285193b317862228220f21b0060938727ec33&o=&s=1",
     },
+    {
+      src: "https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_riad/ec1ea267f18d830b68ca76a666734f8e93a1853d.jpg"
+    }
   ];
+
+  const handleOpen = (i) => {
+    setSlideNumber(i);
+    setOpen(true);
+  }
   return (
     <div>
       <Navbar />
       <Header type="list" />
       <div className="hotelContainer">
+        {open && <div className="slider"> sfdf
+        </div> }
         <div className="hotelWrapper">
           <button className="bookNow">Reserve or Book Now!</button>
           <h1 className="hotelTitle">Grand Hotel</h1>
@@ -48,9 +62,9 @@ const Hotel = () => {
               Book a stay over $114 at this property and get a free airport taxi
             </span>
             <div className="hotelImages">
-              {photos.map((photo) => (
+              {photos.map((photo, i) => (
                 <div className="hotelImgWrapper">
-                  <img src={photo.src} alt="" className="hotelImg" />
+                  <img onClick={handleOpen} src={photo.src} alt="" className="hotelImg" />
                 </div>
               ))}
             </div>
