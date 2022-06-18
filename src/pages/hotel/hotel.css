@@ -126,6 +126,14 @@
 }
 
 .sliderImg{
-  width: 80%;
+  width: 65%;
   height: 80vh;
+}
+.close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: lightgray;
+  cursor: pointer;
 }
