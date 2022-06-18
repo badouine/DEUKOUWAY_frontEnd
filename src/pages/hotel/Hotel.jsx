@@ -3,9 +3,14 @@ import Navbar from "../../components/navbar/Navbar";
 import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleArrowLeft,
+  faCircleArrowRight,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
@@ -33,68 +38,80 @@ const Hotel = () => {
       src: "https://t-cf.bstatic.com/xdata/images/hotel/square600/265102710.webp?k=0dbd7460e3018107ecaa3530aec285193b317862228220f21b0060938727ec33&o=&s=1",
     },
     {
-      src: "https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_riad/ec1ea267f18d830b68ca76a666734f8e93a1853d.jpg"
-    }
+      src: "https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_riad/ec1ea267f18d830b68ca76a666734f8e93a1853d.jpg",
+    },
   ];
 
   const handleOpen = (i) => {
     setSlideNumber(i);
     setOpen(true);
-  }
+  };
   return (
     <div>
       <Navbar />
       <Header type="list" />
       <div className="hotelContainer">
-        {open && <div className="slider"> sfdf
-        </div> }
+        {open && (
+          <div className="slider">
+            <FontAwesomeIcon icon={faCircleXmark} />
+            <FontAwesomeIcon icon={faCircleArrowLeft} />
+            <div className="sliderWrapper">
+              <img src={photos[slideNumber].src} alt="" className="sliderImg" />
+            </div>
+            <FontAwesomeIcon icon={faCircleArrowRight} />
+          </div>
+        )}
         <div className="hotelWrapper">
           <button className="bookNow">Reserve or Book Now!</button>
           <h1 className="hotelTitle">Grand Hotel</h1>
-            <div className="hotelAddress">
-              <FontAwesomeIcon icon={faLocationDot} />
-              <span>Elton St 125 New York</span>
-            </div>
-            <span className="hotelDistance">
-              Excellent location ~ 500m from center
-            </span>
-            <span className="hotelPriceHighlight">
-              Book a stay over $114 at this property and get a free airport taxi
-            </span>
-            <div className="hotelImages">
-              {photos.map((photo, i) => (
-                <div className="hotelImgWrapper">
-                  <img onClick={handleOpen} src={photo.src} alt="" className="hotelImg" />
-                </div>
-              ))}
-            </div>
-            <div className="hotelDetails">
-              <div className="hotelDetailsTexts">
-                <h1 className="hotelTitle">Stay in the heart of Krakow</h1>
-                <p className="hotelDesc">
-                  Cet établissement est à 4 minutes à pied de la plage. Doté
-                  d'une piscine avec une zone pour les enfants, le Kalimera
-                  Hotel est un établissement à la gestion familiale situé à
-                  seulement 50 mètres de la plage d'Agia Marina de La Canée. Il
-                  est équipé d'une connexion Wi-Fi gratuite dans l'ensemble de
-                  ses locaux et ses logements indépendants sont pourvus d'un
-                  balcon.
-                </p>
+          <div className="hotelAddress">
+            <FontAwesomeIcon icon={faLocationDot} />
+            <span>Elton St 125 New York</span>
+          </div>
+          <span className="hotelDistance">
+            Excellent location ~ 500m from center
+          </span>
+          <span className="hotelPriceHighlight">
+            Book a stay over $114 at this property and get a free airport taxi
+          </span>
+          <div className="hotelImages">
+            {photos.map((photo, i) => (
+              <div className="hotelImgWrapper">
+                <img
+                  onClick={() => handleOpen(i)}
+                  src={photo.src}
+                  alt=""
+                  className="hotelImg"
+                />
               </div>
-              <div className="hotelDetailsPrice">
-                <h1>Perfect for a 9-night stay!</h1>
-                <span>
-                  located in the real heart of Krakow , this propert has an
-                  excellent location score of 9.8!
-                </span>
-                <h2>
-                  <b>$945</b> (9 nights)
-                </h2>
-                <button>Reserve or Book Now!</button>
-              </div>
+            ))}
+          </div>
+          <div className="hotelDetails">
+            <div className="hotelDetailsTexts">
+              <h1 className="hotelTitle">Stay in the heart of Krakow</h1>
+              <p className="hotelDesc">
+                Cet établissement est à 4 minutes à pied de la plage. Doté d'une
+                piscine avec une zone pour les enfants, le Kalimera Hotel est un
+                établissement à la gestion familiale situé à seulement 50 mètres
+                de la plage d'Agia Marina de La Canée. Il est équipé d'une
+                connexion Wi-Fi gratuite dans l'ensemble de ses locaux et ses
+                logements indépendants sont pourvus d'un balcon.
+              </p>
             </div>
+            <div className="hotelDetailsPrice">
+              <h1>Perfect for a 9-night stay!</h1>
+              <span>
+                located in the real heart of Krakow , this propert has an
+                excellent location score of 9.8!
+              </span>
+              <h2>
+                <b>$945</b> (9 nights)
+              </h2>
+              <button>Reserve or Book Now!</button>
+            </div>
+          </div>
         </div>
-        <MailList/>
+        <MailList />
         <Footer />
       </div>
     </div>
